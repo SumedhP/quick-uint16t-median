@@ -23,8 +23,8 @@ install:  ## install python library
 #########
 .PHONY: lint-py lint-cpp lint-docs lint lints
 lint-py:  ## run python linter with ruff
-	python -m ruff check python_template_cpp
-	python -m ruff format --check python_template_cpp
+	python -m ruff check sumedh_quick_uint16_median
+	python -m ruff format --check sumedh_quick_uint16_median
 
 lint-cpp:  ## run cpp linter
 	clang-format --dry-run -Werror -i -style=file `find ./cpp -name "*.*pp"`
@@ -40,8 +40,8 @@ lints: lint
 
 .PHONY: fix-py fix-cpp fix format
 fix-py:  ## fix python formatting with ruff
-	python -m ruff check --fix python_template_cpp
-	python -m ruff format python_template_cpp
+	python -m ruff check --fix sumedh_quick_uint16_median
+	python -m ruff format sumedh_quick_uint16_median
 
 fix-cpp:  ## fix cpp formatting
 	clang-format -i -style=file `find ./cpp -name "*.*pp"`
@@ -76,13 +76,13 @@ check: checks
 #########
 .PHONY: test-py tests-py coverage-py
 test-py:  ## run python tests
-	python -m pytest -v python_template_cpp/tests
+	python -m pytest -v sumedh_quick_uint16_median/tests
 
 # alias
 tests-py: test-py
 
 coverage-py:  ## run python tests and collect test coverage
-	python -m pytest -v python_template_cpp/tests --cov=python_template_cpp --cov-report term-missing --cov-report xml
+	python -m pytest -v sumedh_quick_uint16_median/tests --cov=sumedh_quick_uint16_median --cov-report term-missing --cov-report xml
 
 .PHONY: test coverage tests
 test: test-py  ## run all tests

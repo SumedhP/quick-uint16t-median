@@ -4,7 +4,7 @@ from time import perf_counter
 
 import numpy as np
 
-from python_template_cpp import median
+from sumedh_quick_uint16_median import median
 
 
 def run_benchmark() -> None:
