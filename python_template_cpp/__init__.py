@@ -1,9 +1,11 @@
 import os
 import os.path
 
-from .extension import *
+from .extension import median
 
 __version__ = "0.1.0"
+
+__all__ = ["median"]
 
 
 def include_path():

@@ -31,7 +31,9 @@ classifiers = [
     "Programming Language :: Python :: 3.14",
 ]
 
-dependencies = []
+dependencies = [
+    "numpy>=1.24",
+]
 
 [project.optional-dependencies]
 develop = [
@@ -120,8 +122,9 @@ src = "/"
 
 [tool.hatch.build.hooks.hatch-cpp]
 verbose = true
+build-type = "Release"
 libraries = [
-    {name = "python_template_cpp/extension", sources = ["cpp/python-template-cpp/extension.cpp"], include-dirs = ["cpp"], binding="pybind11"}
+    {name = "python_template_cpp/extension", sources = ["cpp/python-template-cpp/extension.cpp"], include-dirs = ["cpp"], binding="pybind11", extra-compile-args = ["-O3", "-march=native", "-funroll-loops", "-ffast-math"]}
 ]
 
 [tool.hatch.build.targets.sdist]
